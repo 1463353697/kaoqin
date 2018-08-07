@@ -1,0 +1,465 @@
+*
+{
+    padding:0px;
+    margin:0px;
+}
+ul li{
+    list-style: none;
+}
+html,body{
+    height: 100%;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.container{
+    width: 100%;
+    height: 46px;
+    background-color: #222;
+}
+.container-s1{
+    height: 46px;
+    line-height: 46px;
+    color: #fff;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.nav-left{
+    width: 221px;
+    height: 100%;
+    background-color: #EEEEEE;
+}
+.main-ul{
+    height: 100%;
+    /*padding-left: 30px;*/
+}
+.main-ul li{
+    height: 40px;
+    line-height: 40px;
+    font-weight: ;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.main-ul li img{
+    width: 30px;
+    height: 30px;
+    vertical-align: -10px;
+}
+.main-ul .in-ul{ 
+    background-color: ;
+}
+.main-ul .in-ul li{
+    padding-left: 43px;
+}
+.main-right{
+    position: relative;
+    width: 79%;
+    height: 100%;
+    top: -100%;
+    left: 221px;
+}
+.main-right .tag-man{
+    width: 300px;
+    height: 600px;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: ;
+    top: 50px;
+    
+}
+.main-right .tag-man .man-pic{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 50%;
+}
+.main-right .tag-man .man-name{
+    text-align: center;
+    margin-top: 20px;
+}
+.main-right .tag-man .man-inf table{
+    width: 350px;
+    height: 270px;
+    border-spacing: 0;
+    margin-top: 30px;
+}
+.main-right .tag-man .man-inf table tr{
+    width: 350px;
+    height: 45px;
+}
+.main-right .tag-man .man-inf table tr:nth-child(odd){
+    background-color: #F9F9F9;
+}
+.main-right .tag-man .man-inf table td{
+    padding-left: 15px;
+}
+.main-right .tag-man .man-inf .man-td1{
+    width: 180px;
+}
+.main-right .tag-man .man-cha{
+    margin-top: 25px;
+    text-align: center;
+}
+.main-right .tag-man .man-cha input{
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    background-color: #FF5722;
+}
+.main-right .tag-card{
+    width: 900px;
+    height: 600px;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    z-index: ;
+    top: 0px;
+    left: 80px;
+}
+.main-right .tag-card .card-da{
+    padding: 15px 0;
+}
+.card-d1,.card-d2{
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    background-color: #FF5722;
+}
+.card-d1{
+    margin-left: 40px;
+}
+.card-d2{
+    margin-left: 80px;
+}
+.main-right .tag-card .ap_content {
+    width: 700px;
+    margin-top: 40px;
+    margin-left: 110px;
+    
+}
+.main-right .tag-card .ap_table_head {
+    font-weight: bold;   
+}
+
+.main-right .tag-card .ap_content table {
+    border: solid 1px #CCCCCC;
+}
+.main-right .tag-card .ap_content table tr td {
+    padding: 5px 40px;
+    text-align: center;
+
+}
+.main-right .tag-card .ap_table_2 {
+    background-color: #F9F9F9;
+}
+.main-right .tag-card .ap_situation_oppose {
+    color: #E80000;
+}
+.main-right .tag-card .ap_situation_agree {
+    color: #009933;
+}
+.main-right .tag-card .ap_situation_wait {
+    color: #CC0099;
+}
+.main-right .tag-card .ap_table_bottom {
+    margin-top: 10px;
+}
+.main-right .tag-card .ap_table_bottom span {
+    padding: 0px 70px;
+}
+.main-right .tag-apl{
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    z-index: ;
+    top: 0px;
+    left: 0;
+}
+.tag-apl .apl-inf{
+    width: 1000px;
+    height: 500px;
+    margin-top: 80px;
+}
+.apl-inf .apf-u1{
+    border: 1px solid white;
+}
+.apl-inf .apf-u1 li,.apl-inf .apf-u2 li{
+    float: left;
+}
+.apl-inf .apf-u1 li{
+    margin-left: 150px;
+}
+.apl-inf .apf-u2 li{
+    margin-left: 50px;
+}
+.apl-inf .apf-u2{
+    margin-top: 50px;
+}
+.apl-inf .apf-u2:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.apf-u2 .apf-data{
+    width: 150px;
+}
+.apl-inf .apf-dcr{
+    margin-left: 150px;
+    height: 210px;
+
+}
+.apl-inf .apf-dcr textarea{
+    width: 580px;
+    height: 180px;
+    resize: none;
+}
+.apf-sub input{
+    margin-left: 230px;
+}
+.apf-sub input:nth-child(even){
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    background-color: #FF5722;
+}
+.main-right .tag-out{
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    z-index: ;
+    top: 0px;
+    left: 0;
+}
+.tag-out .out-inf{
+    width: 1000px;
+    height: 500px;
+    margin-top: 80px;
+}
+.out-inf .otf-u1{
+    border: 1px solid white;
+}
+.out-inf .otf-u1 li,.out-inf .otf-u2 li{
+    float: left;
+}
+.out-inf .otf-u1 li{
+    margin-left: 150px;
+}
+.out-inf .otf-u2 li{
+    margin-left: 50px;
+}
+.otf-pla{
+    width: 150px;
+}
+.out-inf .otf-u2{
+    margin-top: 50px;
+}
+.out-inf .otf-u2:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.otf-u2 .otf-data{
+    width: 150px;
+}
+.out-inf .otf-dcr{
+    margin-left: 150px;
+    height: 210px;
+
+}
+.out-inf .otf-dcr textarea{
+    width: 580px;
+    height: 180px;
+    resize: none;
+}
+.otf-sub input{
+    margin-left: 230px;
+}
+.otf-sub input:nth-child(even){
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    background-color: #FF5722;
+}
+.tag_appro {
+    margin-left: 200px;
+}
+.appro_head {
+    width: 900px;
+    border-bottom: solid 1px #CCCCCC;
+    padding-top: 2px;
+    padding-bottom: 7px;
+}
+        
+.appro_content {
+    width: 700px;
+    margin-top: 40px;
+    margin-left: 110px;
+            
+}
+#appro_table_head {
+    font-weight: bold;
+            
+}
+.appro_content table tr {
+    margin: 0px;
+}
+.appro_content table {
+    border: solid 1px #CCCCCC;
+}
+.appro_content table tr td {
+    padding: 5px 40px;
+    text-align: center;
+
+}
+.appro_table_2 {
+    background-color: #F9F9F9;
+}
+.appro_situation {
+            /*驳回
+            color: #E80000;*/
+            
+            /*同意
+            color: #009933;*/
+
+            /*未处理
+            color: #CC0099;*/
+}
+.appro_situation_oppose {
+    color: #E80000;
+}
+.appro_situation_agree {
+    color: #009933;
+}
+.appro_situation_wait {
+    color: #CC0099;
+}
+.appro_table_bottom {
+    margin-top: 10px;
+}
+.appro_table_bottom span {
+    padding: 0px 70px;
+}
+.ap_head {
+    width: 900px;
+    border-bottom: solid 1px #CCCCCC;
+    padding-top: 2px;
+    padding-bottom: 7px;
+        }
+.tag_cardstua {
+    margin-left: 200px;
+}
+        
+.stua_content {
+    width: 900px;
+    margin-top: 40px;
+    margin-left: 110px;
+            
+}
+#stua_table_head {
+    font-weight: bold;
+            
+}
+.stua_content table tr {
+    margin: 0px;
+}
+.stua_content table {
+        border: solid 1px #CCCCCC;
+}
+.stua_content table tr td {
+    padding: 5px 20px;
+    text-align: center;
+
+}
+.ap_table_2 {
+    background-color: #F9F9F9;
+}
+ .ap_situation {
+            /*驳回
+            color: #E80000;*/
+            
+            /*同意
+            color: #009933;*/
+
+            /*未处理
+            color: #CC0099;*/
+}
+.ap_situation_oppose {
+    color: #E80000;
+}
+.ap_situation_agree {
+    color: #009933;
+}
+.ap_situation_wait {
+    color: #CC0099;
+}
+.ap_table_bottom {
+    margin-top: 10px;
+}
+.ap_table_bottom span {
+    padding: 0px 70px;
+ }
+        /*迟到*/
+.be_late {
+    color: #CC0099;
+}
+        /*旷工*/
+.stay_away {
+    color: #E80000;
+}
+.tag_holistua {
+    margin-left: 200px;
+}
+.stua_hli_content {
+    width: 900px;
+    margin-top: 40px;
+    margin-left: 110px;
+            
+}
+#stua_table_head {
+    font-weight: bold;
+            
+}
+.stua_hli_content table tr {
+    margin: 0px;
+}
+.stua_hli_content table {
+    border: solid 1px #CCCCCC;
+}
+.stua_hli_content table tr td {
+    padding: 5px 12px;
+    text-align: center;
+
+}
+.tag_outstua {
+    margin-left: 200px;
+}
+.tag_holicheck {
+    margin-left: 200px;
+}
+.information_table {
+    border: solid 1px #CCCCCC;
+    width: 700px;
+    margin-top: 50px;
+}
+.information_table td {
+    cursor: pointer;
+}
+.tag_outcheck {
+    margin-left: 200px;
+}

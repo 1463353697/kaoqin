@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<title>Css</title>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css\project1.css">
+<script type="text/javascript" src="js\jquery.js"></script>
+<script type="text/javascript" src="js\easing.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+
+<body>
+	<div class="container">
+        <span class="container-s1">员工考勤管理系统</span>
+    </div>
+    <div class="nav-left">
+        <ul class="main-ul">
+            <li class="left-cho" style="font-weight:bold;background-color:#999;"><img src="image/addressbook.png">个人中心</li>
+            <li class="left-cho"><img src="image/card.png">打卡</li>
+            <li id="left-apl"><img src="image/apply.png">假勤申请<b>></b></li>
+            <ul class="in-ul" style="display: none;">
+                <li class="left-cho">请假申请</li>
+                <li class="left-cho">出差申请</li>
+                <li class="left-cho">申请进度</li>
+            </ul>
+            <li id="left-apl"><img src="image/check.png">查看相应情况<b>></b></li>
+            <ul class="in-ul" style="display: none;">
+                <li class="left-cho">打卡情况</li>
+                <li class="left-cho">请假情况</li>
+                <li class="left-cho">出差情况</li>
+            </ul>
+            <li class="left-cho"><img src="image/sq.png">请假审核</li>
+            <li class="left-cho"><img src="image/out.png">出差审核</li>
+        </ul>
+    </div>
+    <div class="main-right">
+        <div class="tag-man" style="display: ;">
+            <div class="man-pic">
+                
+            </div>
+            <div class="man-name">
+                <h3>xxxxx</h3>
+            </div>
+            <div class="man-inf">
+                <table>
+                    <tr><td><b>员工编号：</b></td><td class="man-td1">xxx</td></tr>
+                    <tr><td><b>部门：</b></td><td class="man-td1">xxx</td></tr>
+                    <tr><td><b>性别：</b></td><td class="man-td1">xxx</td></tr>
+                    <tr><td><b>婚姻状况：</b></td><td class="man-td1">xxx</td></tr>
+                    <tr><td><b>联系电话：</b></td><td class="man-td1">xxx</td></tr>
+                    <tr><td><b>电子邮箱：</b></td><td class="man-td1">xxx</td></tr>
+                </table>
+
+                
+            </div>
+            <div class="man-cha">
+                <input type="submit" name="" value="修改资料">
+            </div>
+            
+        </div>
+        <div class="tag-card" style="display: none;">
+            <h2>今天是：2018.8.8</h2>
+            <hr>
+            <div class="card-da">
+                <input type="submit" name="" value="上班打卡" class="card-d1">
+                <input type="submit" name="" value="下班打卡" class="card-d2">
+            </div>
+            <hr>
+            <h2>打卡信息</h2>
+            <div class="ap_content">
+                <table border="0" class="ap_content_table" cellspacing="0">
+                    <tr class="ap_table_head">
+                        <td>日期</td>
+                        <td>上班时间</td>
+                        <td>下班时间</td>
+                        <td>出勤情况</td>
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2018-05-05</td>
+                        <td>09:37:29</td>
+                        <td>09:38:12</td>
+                        <td>旷工</td>
+                    </tr>
+                    <tr>
+                        <td>2018-05-05</td>
+                        <td>09:37:29</td>
+                        <td>09:38:12</td>
+                        <td>旷工</td>
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2018-05-05</td>
+                        <td>09:37:29</td>
+                        <td >09:38:12</td>
+                        <td>旷工</td>
+                    </tr>
+                    <tr>
+                        <td>2018-05-05</td>
+                        <td>09:37:29</td>
+                        <td>09:38:12</td>
+                        <td>旷工</td>
+                    </tr>
+                </table>
+                <div class="ap_table_bottom">
+                    <span><a href="javascript:void(0)">上一页</a></span>
+                    <span>1/1页</span>
+                    <span><a href="javascript:void(0)">下一页</a></span>
+                </div>
+            </div>        
+        </div>
+        <div class="tag-apl" style="display: none;">
+            <h2>申请</h2>
+            <hr>
+            <div class="apl-inf">
+                <ul class="apf-u1">
+                    <li>申请人：<span>admin</span></li>
+                    <li>员工编号：<span>05</span></li>
+                    <li>就职部门：<span>人力资源部</span></li>
+                </ul>
+                <ul class="apf-u2">
+                    <li style="margin-left: 150px;">开始时间：<input type="date" name="" class="apf-data"></li>
+                    <li>结束时间：<input type="date" name="" class="apf-data"></li>
+                    <li><input type="checkbox" name="">事假<input type="checkbox" name="">病假</li>
+                </ul>
+                <br>
+                <div class="apf-dcr">
+                    <span>请假事由:</span>
+                    <textarea></textarea>
+                </div>
+                <div class="apf-sub">
+                    <input type="checkbox" name="">紧急事务，加速批准
+                    <input type="submit" name="" value="提交">
+                </div>
+            </div>
+        </div>
+        <div class="tag-out" style="display: none;">
+            <h2>申请</h2>
+            <hr>
+            <div class="out-inf">
+                <ul class="otf-u1">
+                    <li >申请人：<span>admin</span></li>
+                    <li>员工编号：<span>05</span></li>
+                    <li>就职部门：<span>人力资源部</span></li>
+                </ul>
+                <ul class="otf-u2">
+                    <li style="margin-left: 150px;">出差地点：<input type="text" name="" class="otf-pla"></li>
+                    <li>开始时间：<input type="date" name="" class="otf-data"></li>
+                    <li>结束时间：<input type="date" name="" class="otf-data"></li>
+                    
+                </ul>
+                <br>
+                <div class="otf-dcr">
+                    <span>出差事由:</span>
+                    <textarea></textarea>
+                </div>
+                <div class="otf-sub">
+                    <input type="checkbox" name="">紧急事务，加速批准
+                    <input type="submit" name="" value="提交">
+                </div>
+            </div>
+        </div>
+        <div class="tag_appro" style="display: none;">
+            <div class="appro_head">
+                <h2>申请进度</h2>
+            </div>
+    
+            <div class="appro_content">
+                <table border="0" cellspacing="0">
+                    <tr id="appro_table_head">
+                        <td>提交申请时间</td>
+                        <td>申请类别</td>
+                        <td>申请情况</td>
+                        <td>审核人</td>
+                    </tr>
+                    <tr class="appro_table_2">
+                        <td>2018-05-05</td>
+                        <td>事假</td>
+                        <td class="appro_situation_oppose">驳回</td>
+                        <td>admin</td>
+                    </tr>
+                    <tr>
+                        <td>2018-05-05</td>
+                        <td>事假</td>
+                        <td class="appro_situation_wait">未处理</td>
+                        <td>admin</td>
+                    </tr>
+                    <tr class="appro_table_2">
+                        <td>2018-05-05</td>
+                        <td>事假</td>
+                        <td class="appro_situation_agree">同意</td>
+                        <td>admin</td>
+                    </tr>
+                    <tr>
+                        <td>2018-05-05</td>
+                        <td>事假</td>
+                        <td class="appro_situation_oppose">驳回</td>
+                        <td>admin</td>
+                    </tr>
+                </table>
+                <div class="appro_table_bottom">
+                    <span><a href="">上一页</a></span>
+                    <span>1/1页</span>
+                    <span><a href="">下一页</a></span>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- 打卡情况 -->
+        <div class="tag_cardstua" style="display: none;">
+            <div class="ap_head">
+                <h2>打卡情况</h2>
+            </div>
+            <div class="stua_content">
+                <table border="0" cellspacing="0">
+                    <tr id="stua_table_head">
+                        <td>员工编号</td>
+                        <td>日期</td>
+                        <td>姓名</td>
+                        <td>上班时间</td>
+                        <td>下班时间</td>
+                        <td>打卡情况</td>
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2</td>
+                        <td>2018-08-04</td>
+                        <td>admin</td>
+                        <td>09:38:12</td>
+                        <td>18:20:12</td>
+                        <td class="be_late">迟到</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2018-08-04</td>
+                        <td>admin</td>
+                        <td>09:38:12</td>
+                        <td>18:20:12</td>
+                        <td class="stay_away">旷工</td>
+                
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2</td>
+                        <td>2018-08-04</td>
+                        <td>admin</td>
+                        <td>09:38:12</td>
+                        <td>18:20:12</td>
+                        <td class="stay_away">旷工 迟到</td>
+                
+                    </tr>
+            
+                </table>
+                <div class="ap_table_bottom">
+                    <span><a href="">上一页</a></span>
+                    <span>1/1页</span>
+                    <span><a href="">下一页</a></span>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- 请假情况 -->
+        <div class="tag_holistua" style="display: none;">
+            <div class="ap_head">
+                <h2>请假情况</h2>
+            </div>
+            <div class="stua_hli_content">
+                <table border="0" cellspacing="0">
+                    <tr id="stua_table_head">
+                        <td>申请时间</td>
+                        <td>员工编号</td>
+                        <td>姓名</td>
+                        <td>请假情况</td>
+                        <td>开始时间</td>
+                        <td>结束时间</td>
+                        <td>处理结果</td>
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2018-08-04</td>
+                        <td>4</td>
+                        <td>admin</td>
+                        <td>病假</td>
+                        <td>2018-08-04</td>
+                        <td>2018-08-04</td>
+                        <td class="ap_situation_oppose">驳回</td>
+                    </tr>
+                    <tr>
+                        <td>2018-08-04</td>
+                        <td>4</td>
+                        <td>admin</td>
+                        <td>病假</td>
+                        <td>2018-08-04</td>
+                        <td>2018-08-04</td>
+                        <td class="ap_situation_wait">未处理</td>
+                
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2018-08-04</td>
+                        <td>4</td>
+                        <td>admin</td>
+                        <td>病假</td>
+                        <td>2018-08-04</td>
+                        <td>2018-08-04</td>
+                        <td class="ap_situation_agree">通过</td>
+                
+                    </tr>
+            
+                </table>
+                <div class="ap_table_bottom">
+                    <span><a href="">上一页</a></span>
+                    <span>1/1页</span>
+                    <span><a href="">下一页</a></span>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- 出差情况 -->
+        <div class="tag_outstua" style="display: none;">
+            <div class="ap_head">
+                <h2>出差情况</h2>
+            </div>
+            <div class="stua_hli_content">
+                <table border="0" cellspacing="0">
+                    <tr id="stua_table_head">
+                        <td>申请时间</td>
+                        <td>员工编号</td>
+                        <td>姓名</td>
+                        <td>出差地点</td>
+                        <td>开始时间</td>
+                        <td>结束时间</td>
+                        <td>处理结果</td>
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2018-08-04</td>
+                        <td>4</td>
+                        <td>admin</td>
+                        <td>上海</td>
+                        <td>2018-08-04</td>
+                        <td>2018-08-04</td>
+                        <td class="ap_situation_oppose">驳回</td>
+                    </tr>
+                    <tr>
+                        <td>2018-08-04</td>
+                        <td>4</td>
+                        <td>admin</td>
+                        <td>广州</td>
+                        <td>2018-08-04</td>
+                        <td>2018-08-04</td>
+                        <td class="ap_situation_wait">未处理</td>
+                
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>2018-08-04</td>
+                        <td>4</td>
+                        <td>admin</td>
+                        <td>南京</td>
+                        <td>2018-08-04</td>
+                        <td>2018-08-04</td>
+                        <td class="ap_situation_agree">通过</td>
+                
+                    </tr>
+            
+                </table>
+                <div class="ap_table_bottom">
+                    <span><a href="">上一页</a></span>
+                    <span>1/1页</span>
+                    <span><a href="">下一页</a></span>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- 请假审核 -->
+        <div class="tag_holicheck" style="display: none;">
+            <div class="ap_head">
+                <h2>请假审核</h2>
+            </div>
+            <div class="appro_content">
+                <table class="information_table">
+                    <tr>
+                        <td>
+                    
+                    
+                            <span>2</span>-
+                            <span>admin</span>
+                            <span>2018/04/12</span>
+                            <span>事假</span>
+                    
+                    
+                        </td>
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>
+                    
+                    
+                            <span>2</span>-
+                            <span>admin</span>
+                            <span>2018/04/12</span>
+                            <span>事假</span>
+                    
+                    
+                        </td>
+                    </tr>
+                </table>
+                <div class="ap_table_bottom">
+                    <span><a href="">上一页</a></span>
+                    <span>1/1页</span>
+                    <span><a href="">下一页</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 出差审核 -->
+        <div class="tag_outcheck" style="display: none;">
+            <div class="ap_head">
+                <h2>出差审核</h2>
+            </div>
+            <div class="appro_content">
+                <table class="information_table">
+                    <tr>
+                        <td>
+                    
+                            <span>【紧急】</span>
+                            <span>2</span>-
+                            <span>admin</span>
+                            <span>2018/04/12</span>
+                            <span>北京请假出差</span>
+                    
+                    
+                        </td>
+                    </tr>
+                    <tr class="ap_table_2">
+                        <td>
+                    
+                    
+                            <span>2</span>-
+                            <span>admin</span>
+                            <span>2018/04/12</span>
+                            <span>北京请假出差</span>
+                    
+                    
+                        </td>
+                    </tr>
+                </table>
+                <div class="ap_table_bottom">
+                    <span><a href="">上一页</a></span>
+                    <span>1/1页</span>
+                    <span><a href="">下一页</a></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+	</div>
+<script type="text/javascript" src="js/project1.js">
+    
+</script>
+</body>
+
+</html>

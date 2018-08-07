@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>找回密码</title>
+	<style type="text/css">
+		* {
+			margin: 0px;
+			padding: 0px;
+			text-decoration: none;
+			list-style: none;
+			font-family: "微软雅黑";
+		}
+		.sign_up_in {
+			width: 400px;
+			height: 280px;
+			border: solid 1px #CCCCCC;
+			border-radius: 8px;
+			box-shadow: 0px 5px 5px 0px grey;
+			position: relative;
+			margin: 150px 550px;
+			background-color: #ffffff;
+
+			
+		}
+		.entry_head {
+			width: 400px;
+			height: 40px;
+			text-align: center;
+			border-top-right-radius: 8px;
+			border-top-left-radius: 8px;
+			background-color: #222222;
+			color: #ffffff;
+		}
+		.entry_content table {
+			margin-left: 20px;
+			margin-top: 20px;
+
+		}
+		.entry_content table tr {
+			display: block;
+			margin-top: 30px;
+		}
+		.entry_content input {
+			width: 180px;
+			height: 25px;
+			border-radius: 5px;
+			border:1px solid grey;
+		}
+		.input_mail {
+			margin-left: 5px;
+		}
+		.get_passcode {
+			padding: 8px 12px;
+			background-color: #222222;
+			color: #ffffff;
+			border: 0px;
+			border-radius: 5px;
+			
+			
+		}
+		.back_sure {
+			padding: 8px 12px;
+			background-color: #222222;
+			color: #ffffff;
+			border: 0px;
+			border-radius: 5px;
+			display: block;
+			margin: 0 auto;
+			margin-top: 25px;
+		}
+		.back_entry{
+			color: black;
+			font-weight: bold;
+			font-size: 12px;
+			text-decoration: underline;
+			margin-left: 340px;
+		}
+	</style>
+</head>
+<body background="image/back.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;">
+	<div class="sign_up_in">
+		<div class="entry_head">
+			<h2>找回密码</h2>
+		</div>
+		<div class="entry_content">
+			<table>
+				<tr>
+					<td>
+						邮&nbsp&nbsp&nbsp&nbsp&nbsp箱:
+						<input class="input_mail" placeholder="请输入您的邮箱" type="text" name="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						验证码：
+						<input type="text" name="">
+						<button class="get_passcode">获取验证码</button>
+					</td>
+				</tr>
+			</table>
+			<button class="back_sure">确定</button>
+			<a class="back_entry" href="用户登录.html">返回登录</a>
+		</div>
+	</div>
+
+</body>
+</html>
