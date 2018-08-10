@@ -12,7 +12,7 @@
 		}
 		.sign_up {
 			width: 400px;
-			height: 500px;
+			/*height: 500px;*/
 			border: solid 1px #CCCCCC;
 			border-radius: 8px;
 			box-shadow: 0px 5px 5px 0px grey;
@@ -23,15 +23,15 @@
 		}
 		.entry_head {
 			width: 400px;
-			height: 40px;
+			/*height: 40px;*/
 			text-align: center;
 			border-top-right-radius: 8px;
 			border-top-left-radius: 8px;
 			background-color: #222222;
 			color: #ffffff;
 		}
-		.sign_content table {
-			margin-left: 20px;
+		#sign_content table {
+			padding-left: 30px;
 			margin-top: 10px;
 			font-size: 14px;
 
@@ -142,7 +142,7 @@ background-attachment: fixed;">
 				</tr>
 				<tr>
 					<td>
-						邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp编：
+						邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱：
 						<input type="text" name="">
 						<label></label>
 					</td>
@@ -179,11 +179,18 @@ background-attachment: fixed;">
 			//获取注册页面所有的input标签
 			var sign_allinput = sign_content.getElementsByTagName('input');
 
+			//获取性别和婚否的选择按钮
+			var sign_gender = document.getElementsByName('gender');
+			var sign_ifmarried = document.getElementsByName('marry');
 
-			    //关于tips的数组
-            var sign_nulltip = "不能为空！";
+			//获得表单旁边提示的文字
+			var sign_tips = sign_content.getElementsByTagName('label');
+
+
+			//关于tips的数组
+            
             var sign_wrongtips = 
-                [   "数字不能开头,长度在6-16位之间！",
+                [   "长度在6-16位之间！",
                     "数字长度必须11位！",
                     "邮箱格式错误！",
                     "密码长度在6-16位之间！",
@@ -191,85 +198,72 @@ background-attachment: fixed;">
                 ]
 
 
-            //获取性别和婚否的选择按钮
-			var sign_gender = document.getElementsByName('gender');
-			var sign_ifmarried = document.getElementsByName('marry');
-
-			//获得表单旁边提示的文字
-			var sign_tips = sign_content.getElementsByTagName('label');
+            
 
 			
 
-			function sign_check(inputvalue,inputpattern,whichlable,nulltip,wrongtip){  
-                  
-                if(inputvalue =="" || inputvalue==null){  
-                    whichlable.innerHTML = nulltip;
-                     
-                }  
-                else if(inputpattern.test(inputvalue)){  
-                     
-                     whichlable.innerHTML = "正确!";
-                     return true;
-                         
-                }  
-                else{  
-                    whichlable.innerHTML = wrongtip; 
-                         
-                }  
+			function sign_check(inputNum,pattern,lableNum,wrongNum){ 
+				var theValue = sign_allinput[inputNum].value; 
+                var thePattern = pattern;  
+                    if(theValue =="" || theValue==null){  
+                        sign_tips[lableNum].innerHTML = "不能为空!";  
+                    }  
+                    else if(thePattern.test(theValue)){  
+                        sign_tips[lableNum].innerHTML = "正确(^o^)";
+                        return true;  
+                    }  
+                    else{  
+                        sign_tips[lableNum].innerHTML = sign_wrongtips[wrongNum];  
+                    }  
             }
 
 
 			//用户名
-			var sign_username = sign_allinput[0].value;
-			var sign_unpattern = /^[a-zA-Z_]\w{5,15}$/g;
-			// sign_allinput[0].onblur = function(){ 
-			// 	sign_check(sign_username,sign_unpattern,sign_tips[0],sign_nulltip,sign_wrongtips[0]);
-			// }
-			sign_allinput[0].onblur=function () {
-                  checkUserName();
-                }
-			function checkUserName(){  
-                    var nameValue = sign_allinput[0].value; 
-                    var pattern1 = /^[a-zA-Z_]\w{5,15}$/g;  
-                    if(nameValue =="" || nameValue==null){  
-                        sign_tips[0].innerHTML = "用户名不能为空!";  
-                    }  
-                    else if(pattern1.test(nameValue)){  
-                        sign_tips[0].innerHTML = "正确!";
-                        return true;  
-                    }  
-                    else{  
-                        sign_tips[0].innerHTML = "数字不能开头,长度在6-16位之间！";  
-                    }  
-                } 
+			
+			sign_allinput[0].onblur = function(){ 
+				sign_check(0,/^[a-zA-Z_]\w{5,15}$/g,0,0);
+			}
+			
+   
 
 
 			//电话号码
-			var sign_phonenumber = sign_allinput[5].value;
-			var sign_pnpattern = /^1\d{10}$/;
+	
 			sign_allinput[5].onblur = function(){
-				sign_check(sign_phonenumber,sign_pnpattern,sign_tips[1],sign_nulltip,sign_wrongtips[1])
+				sign_check(5,/^1\d{10}$/,1,1)
 			}
 
 			//邮箱
-			var sign_email = sign_allinput[6].value;
-			var sign_empattern = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+			
 			sign_allinput[6].onblur = function(){
-				sign_check(sign_email,sign_empattern,sign_tips[2],sign_nulltip,sign_wrongtips[2])
+				sign_check(6,/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g,2,2)
 			}
 
 
 			//密码
-			var sign_passws = sign_allinput[7].value;
-			var sign_pwpattern = /^\w{6,16}$/g;
+			
 			sign_allinput[7].onblur = function(){
-				sign_check(sign_passws,sign_pwpattern,sign_tips[3],sign_nulltip,sign_wrongtips[3])
+				sign_check(7,/^\w{6,16}$/g,3,3)
 			}
 
 			//确认密码
-			var sign_surepassws = sign_allinput[8].value;
+			
 			sign_allinput[8].onblur = function(){
-				sign_check(sign_surepassws,sign_pwpattern,sign_tips[4],sign_nulltip,sign_wrongtips[4])
+				 var pass1Value = sign_allinput[7].value;  
+                    var pass2Value = this.value;  
+                    if(pass2Value =="" || pass2Value==null){  
+                        sign_tips[4].innerHTML = "不能为空!";  
+                    }  
+                    else if(pass1Value == pass2Value){  
+                        sign_tips[4].innerHTML = "正确(^o^)";
+                        return true;  
+                    }  
+                    else if(pass1Value!=pass2Value){  
+                        sign_tips[4].innerHTML = "两次密码输入不一致!";  
+                    }  
+                    else{  
+                        sign_tips[4].innerHTML = "密码长度在6-16位之间！";  
+                    }  
 			}
 
 			//验证码
