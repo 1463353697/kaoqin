@@ -72,6 +72,7 @@
 			display: block;
 			margin: 0 auto;
 			margin-top: 25px;
+			cursor: pointer;
 		}
 		.back_entry{
 			color: black;
@@ -101,9 +102,9 @@ background-attachment: fixed;">
 					<td>
 						<form>性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：
 						
-							<input type="radio" name="gender" value="man" checked="">
+							<input type="radio" name="gender" value="男" checked="checked">
 							男
-							<input type="radio" name="gender" value="woman">
+							<input type="radio" name="gender" value="女">
 							女
 						</form>
 					</td>
@@ -111,9 +112,9 @@ background-attachment: fixed;">
 				<tr>
 					<td>
 						<form>婚&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp姻：
-							<input type="radio" name="marry" value="married" checked="">
+							<input type="radio" name="marry" value="已婚" checked="checked">
 							已婚
-							<input type="radio" name="marry" value="unmarried" >
+							<input type="radio" name="marry" value="未婚" >
 							未婚
 						</form>
 					</td>
@@ -169,10 +170,11 @@ background-attachment: fixed;">
 					</td>
 				</tr>
 			</table>
-			<button class="sign_up_over">注册</button>
+			<button class="sign_up_over" id="sign_submit">注册</button>
 			<a class="back_entry" href="用户登录.html">返回登录</a>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 		window.onload = function(){
 			var sign_content = document.getElementById('sign_content');
@@ -183,8 +185,11 @@ background-attachment: fixed;">
 			var sign_gender = document.getElementsByName('gender');
 			var sign_ifmarried = document.getElementsByName('marry');
 
-			//获得表单旁边提示的文字
+			//获取表单旁边提示的文字
 			var sign_tips = sign_content.getElementsByTagName('label');
+
+			//获取提交按钮
+			var signSubmit = document.getElementById('sign_submit');
 
 
 			//关于tips的数组
@@ -230,20 +235,20 @@ background-attachment: fixed;">
 			//电话号码
 	
 			sign_allinput[5].onblur = function(){
-				sign_check(5,/^1\d{10}$/,1,1)
+				sign_check(5,/^1\d{10}$/,1,1);
 			}
 
 			//邮箱
 			
 			sign_allinput[6].onblur = function(){
-				sign_check(6,/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g,2,2)
+				sign_check(6,/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g,2,2);
 			}
 
 
 			//密码
 			
 			sign_allinput[7].onblur = function(){
-				sign_check(7,/^\w{6,16}$/g,3,3)
+				sign_check(7,/^\w{6,16}$/g,3,3);
 			}
 
 			//确认密码
@@ -268,6 +273,38 @@ background-attachment: fixed;">
 
 			//验证码
 			var sign_surecode = sign_allinput[9];
+			
+			
+			//这里是在所有的表单填写成功之后要执行的操作
+			signSubmit.onclick = function(){
+				var nameInput = sign_check(0,/^[a-zA-Z_]\w{5,15}$/g,0,0);
+				var numInput = sign_check(5,/^1\d{10}$/,1,1);
+				var emailInput = sign_check(6,/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g,2,2);
+				var pawInput = sign_check(7,/^\w{6,16}$/g,3,3);
+
+				if(nameInput && numInput && emailInput && pawInput) {
+					alert("注册成功");
+				}
+
+
+			}
+			//这里封装了一个可以获取到单选按钮的值的函数
+			function getGenderAndMarry(theRadio) {
+				for (var i = 0; i < theRadio.length; i++) {
+					if(theRadio[i].checked){
+						alert(theRadio[i].value);
+					}
+				}
+
+			}
+			//这里是对于两个单选表单调用此函数
+			getGenderAndMarry(sign_gender);
+			getGenderAndMarry(sign_ifmarried);
+
+
+			
+			
+
 
 
 
