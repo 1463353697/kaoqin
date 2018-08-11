@@ -124,7 +124,7 @@ background-attachment: fixed;">
 						
 						部&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp门：
 
-					 	<select>
+					 	<select id="yourSection">
 					 		<option>人力资源部</option>
 					 		<option>财务部</option>
 					 		<option>生产技术部</option>
@@ -184,6 +184,9 @@ background-attachment: fixed;">
 			//获取性别和婚否的选择按钮
 			var sign_gender = document.getElementsByName('gender');
 			var sign_ifmarried = document.getElementsByName('marry');
+
+			//获取部门
+			var userSection = document.getElementById('yourSection');
 
 			//获取表单旁边提示的文字
 			var sign_tips = sign_content.getElementsByTagName('label');
@@ -273,6 +276,10 @@ background-attachment: fixed;">
 
 			//验证码
 			var sign_surecode = sign_allinput[9];
+
+			//用这个就可以获取到验证码的值
+			// alert(sign_surecode.value);
+
 			
 			
 			//这里是在所有的表单填写成功之后要执行的操作
@@ -288,6 +295,8 @@ background-attachment: fixed;">
 
 
 			}
+
+
 			//这里封装了一个可以获取到单选按钮的值的函数
 			function getGenderAndMarry(theRadio) {
 				for (var i = 0; i < theRadio.length; i++) {
@@ -300,6 +309,9 @@ background-attachment: fixed;">
 			//这里是对于两个单选表单调用此函数
 			getGenderAndMarry(sign_gender);
 			getGenderAndMarry(sign_ifmarried);
+
+			//这个可以获取到部门
+			// alert(userSection.value);
 
 
 			
