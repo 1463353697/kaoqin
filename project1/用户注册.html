@@ -257,6 +257,10 @@ background-attachment: fixed;">
 			//确认密码
 			
 			sign_allinput[8].onblur = function(){
+				surePassword();
+			}
+
+			function surePassword(){
 				 var pass1Value = sign_allinput[7].value;  
                     var pass2Value = this.value;  
                     if(pass2Value =="" || pass2Value==null){  
@@ -288,8 +292,20 @@ background-attachment: fixed;">
 				var numInput = sign_check(5,/^1\d{10}$/,1,1);
 				var emailInput = sign_check(6,/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g,2,2);
 				var pawInput = sign_check(7,/^\w{6,16}$/g,3,3);
+				var surePaw =  surePassword();
+				$.post("http://rapapi.org/mockjsdata/36122/org/index.do",
+						{
+							userName : "zhangjie"
 
-				if(nameInput && numInput && emailInput && pawInput) {
+					
+						},
+						function(data,status){
+        					alert("数据: \n" + data + "\n状态: " + status);
+    					}
+
+					)
+
+				if(nameInput && numInput && emailInput && pawInput && surePaw) {
 					alert("注册成功");
 				}
 

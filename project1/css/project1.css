@@ -451,6 +451,7 @@ a{
 }
 .tag_holicheck {
     margin-left: 200px;
+    position: relative;
 }
 .information_table {
     border: solid 1px #CCCCCC;
@@ -462,4 +463,57 @@ a{
 }
 .tag_outcheck {
     margin-left: 200px;
+    position: relative;
+}
+.check_content {
+    width: 650px;
+    border: solid 1px #CCCCCC;
+    box-shadow: 0px 5px 5px 0px grey;
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    background-color: #ffffff;
+    display: none;
+}
+.check_information {
+    /*font-size: 15px;*/
+}
+.check_information tr {
+    display: block;
+    margin: 10px 0px;
+}
+.check_information td {
+    padding: 0px 10px;
+}
+.check_information input {
+    width: 100px;
+
+}
+.check_ap_person {
+    margin-left: 16px;
+}
+.information_bottom button {
+    padding: 8px 12px;
+    background-color: #222222;
+    color: #ffffff;
+    border: 0px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    margin: 25px 70px;
+    display: inline-block;
+}
+.check_why textarea {
+    width: 470px;
+    height: 250px;
+}
+#check_fast input {
+    width: 15px;
+    height: 15px;
+    /*background-color: red;*/
+    margin-top: 20px;
+    margin-left: 80px;
+}
+.information_bottom button {
+    cursor: pointer;
 }
