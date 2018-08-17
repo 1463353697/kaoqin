@@ -69,6 +69,7 @@
 			display: block;
 			margin: 0 auto;
 			margin-top: 25px;
+			cursor: pointer;
 		}
 		
 
@@ -100,6 +101,30 @@ background-attachment: fixed;">
 			<button class="entry_button">登&nbsp&nbsp录</button>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		window.onload = function (){
+			var userPwd = document.getElementsByTagName('input');
+			var entryButton = document.getElementsByTagName('button');
+
+			//一个测试语句
+			// entryButton[0].onclick = function(){
+			// 	alert("用户名" + userPwd[0].value);
+			// 	alert(userPwd[1].value);
+			// }
+			$.post("后台",
+				{
+					login.userName : userPwd[0].value,
+					login.pwd : userPwd[1].value
+
+				},
+				function(){
+					//页面跳转
+				}
+			)
+			
+		}
+	</script>
 
 
 </body>

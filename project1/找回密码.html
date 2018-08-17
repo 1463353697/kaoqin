@@ -105,6 +105,23 @@ background-attachment: fixed;">
 		</div>
 	</div>
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var emailCode = document.getElementsByTagName('input');
+			var getCode = document.getElementsByTagName('button');
+			$.post("后台",
+				{
+					findPwd.mail : emailCode[0].value,
+					findPwd.mail : emailCode[1].value
+
+				},
+				function(){
+
+				}
+			)
+		}
+		
+	</script>
 
 </body>
 </html>

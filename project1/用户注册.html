@@ -54,7 +54,7 @@
 			font-size: 8px;
 			color: red;
 		}
-		.get_passcode {
+		#get_passcode {
 			padding: 8px 12px;
 			background-color: #222222;
 			color: #ffffff;
@@ -166,7 +166,7 @@ background-attachment: fixed;">
 					<td>
 						验 &nbsp证&nbsp码：
 						<input type="text" name="">
-						<button class="get_passcode">获取验证码</button>
+						<button id="get_passcode">获取验证码</button>
 					</td>
 				</tr>
 			</table>
@@ -209,7 +209,7 @@ background-attachment: fixed;">
             
 
 			
-
+        //这里是需要使用正则表达式对表单的值进行判断的函数
 			function sign_check(inputNum,pattern,lableNum,wrongNum){ 
 				var theValue = sign_allinput[inputNum].value; 
                 var thePattern = pattern;  
@@ -226,13 +226,32 @@ background-attachment: fixed;">
             }
 
 
-			//用户名
+		//用户名
 			
 			sign_allinput[0].onblur = function(){ 
 				sign_check(0,/^[a-zA-Z_]\w{5,15}$/g,0,0);
 			}
+
+
+		//性别和婚否
+			//这里封装了一个可以获取到单选按钮的值的函数
+			function getGenderAndMarry(theRadio ,gender_or_marry) {
+				for (var i = 0; i < theRadio.length; i++) {
+					if(theRadio[i].checked){
+						var gender_or_marry = theRadio[i].value;
+						
+					}
+				}
+
+			}
+			//这里是对于两个单选表单调用此函数
+			var theSex;
+			var theMarry;
+			getGenderAndMarry(sign_gender,theSex);
+			getGenderAndMarry(sign_ifmarried ,theMarry);
 			
-   
+   			//这个可以获取到部门
+			// alert(userSection.value);
 
 
 			//电话号码
@@ -278,6 +297,10 @@ background-attachment: fixed;">
                     }  
 			}
 
+			//这是获取验证码的按钮
+
+			var getCodeButton = document.getElementById('get_passcode');
+
 			//验证码
 			var sign_surecode = sign_allinput[9];
 
@@ -293,38 +316,41 @@ background-attachment: fixed;">
 				var emailInput = sign_check(6,/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g,2,2);
 				var pawInput = sign_check(7,/^\w{6,16}$/g,3,3);
 				var surePaw =  surePassword();
-				$.post("http://rapapi.org/mockjsdata/36122/org/index.do",
+				//这只是用来测试的一句话
+				alert(sign_allinput[0].value);
+				
+
+				if(nameInput && numInput && emailInput && pawInput && surePaw) {
+					$.post("后台",
 						{
-							userName : "zhangjie"
+							
+							register.userName : sign_allinput[0].value,
+							register.sex : theSex,
+							register.marrige : theMarry,
+							register.department : userSection.value,
+							register.phone : sign_allinput[5].value,
+							register.mail : sign_allinput[6].value,
+							register.pwd : sign_allinput[7].value,
+							register.verifyCode : sign_allinput[9].value,
+							}
+
 
 					
 						},
-						function(data,status){
-        					alert("数据: \n" + data + "\n状态: " + status);
+						function(){
+        					alert("注册成功");
     					}
 
 					)
-
-				if(nameInput && numInput && emailInput && pawInput && surePaw) {
-					alert("注册成功");
+					
 				}
+				
 
 
 			}
 
 
-			//这里封装了一个可以获取到单选按钮的值的函数
-			function getGenderAndMarry(theRadio) {
-				for (var i = 0; i < theRadio.length; i++) {
-					if(theRadio[i].checked){
-						alert(theRadio[i].value);
-					}
-				}
-
-			}
-			//这里是对于两个单选表单调用此函数
-			getGenderAndMarry(sign_gender);
-			getGenderAndMarry(sign_ifmarried);
+			
 
 			//这个可以获取到部门
 			// alert(userSection.value);
