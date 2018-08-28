@@ -54,6 +54,8 @@ window.onload = function(){
 	//获取返回结果的按钮
 	var holidayResult = document.getElementById('holiday_check_result').getElementsByTagName('button');
 	var outResult = document.getElementById('out_check_result').getElementsByTagName('button');
+    //获取是否紧急的按钮
+	var jinjiIf = document.getElementById('jinji');
 
 
 //这是一个测试的语句
@@ -106,7 +108,7 @@ window.onload = function(){
 
 
 // 给每个表格添加点击事件
-// 这是封装的函数
+// 这是封装的函数，理论上是可用的
 // 	function applyTabClick(tab,applIf,input,review,result){ 	
 // 		for (var i = 0; i < tab.length; i++) {
 // 			tab[i].onclick = function(){
@@ -119,6 +121,7 @@ window.onload = function(){
 // 					input[3].value = review[i].startTime;
 // 					input[4].value = review[i].endTime;
 // 					input[5].value = review[i].applyType;
+//					jinjiIf.checked = holidayReview[i].jijin;
 // 				//给表示处理结果的按钮添加点击事件，返回处理结果并关闭页面
 				
 // 					result[0].onclick = function(){
@@ -153,12 +156,13 @@ window.onload = function(){
 
 
 
-// //这是未封装为函数的表格点击事件，经测试是可用的	
+// //这是未封装为函数的表格点击事件，上面封装的函数是根据这个原理来写的，经测试是可用的	
 	for (var i = 0; i < applyHolidayTab.length; i++) {
 		applyHolidayTab[i].onclick = function(){
 			
 			$applyHolidayIf.css("display" , "block");
 			var jinjiIf = document.getElementById('jinji');
+			jinjiIf.checked = true;
 			
 			$.get("后台",function(){
 				holidayIfInput[0].value = holidayReview[i].applyPerson;

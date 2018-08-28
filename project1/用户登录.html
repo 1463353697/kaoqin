@@ -106,22 +106,30 @@ background-attachment: fixed;">
 		window.onload = function (){
 			var userPwd = document.getElementsByTagName('input');
 			var entryButton = document.getElementsByTagName('button');
+			
 
 			//一个测试语句
 			// entryButton[0].onclick = function(){
 			// 	alert("用户名" + userPwd[0].value);
 			// 	alert(userPwd[1].value);
 			// }
-			$.post("后台",
+			entryButton.onclick = function(){
+				$.post("后台",
 				{
 					login.userName : userPwd[0].value,
 					login.pwd : userPwd[1].value
 
 				},
 				function(){
-					//页面跳转
+					alert("登录成功");
+					//登陆成功之后跳转页面
+					entryButton[0].onclick = function() {
+						location.href = "project1.html";
+					}
+					
 				}
-			)
+				)
+			}
 			
 		}
 	</script>

@@ -75,6 +75,7 @@
 			font-size: 12px;
 			text-decoration: underline;
 			margin-left: 340px;
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -109,6 +110,7 @@ background-attachment: fixed;">
 		window.onload = function(){
 			var emailCode = document.getElementsByTagName('input');
 			var getCode = document.getElementsByTagName('button');
+
 			$.post("后台",
 				{
 					findPwd.mail : emailCode[0].value,
