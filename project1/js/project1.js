@@ -222,6 +222,88 @@ window.onload = function(){
 // applyTabClick(applyouttab,applyoutif);
 
 
+//给不同的处理结果添加不一样的颜色
+function addColor (theTab,get1,class1,get2,class2,get3,class3) {
+	var theTd = theTab.getElementsByTagName('td');
+	for (var i = 0; i < theTd.length; i++) {
+		if (theTd[i].innerHTML == get1) {
+			theTd[i].className = class1;
+		}
+		if (theTd[i].innerHTML == get2) {
+			theTd[i].className = class2;
+		}
+		if (theTd[i].innerHTML == get3) {
+			theTd[i].className = class3;
+		}
+	}
+}
+
+//给表格偶数行添加阴影背景颜色
+function addBackColor (theTab) {
+	var theTr = theTab.getElementsByTagName('tr');
+	for (var i = 0; i < theTr.length; i++) {
+		if(i%2 == 1) {
+		theTr[i].className = "appro_table_2";
+		}
+	}
+
+}
+
+
+
+//申请进度
+
+var applyProTab = document.getElementById('appro_table');
+var applyProCnetent = "<tr>" +
+                        "<td>2018-05-05</td>" +
+                        "<td>事假</td>"+
+                        "<td>驳回</td>" +
+                        "<td>admin</td>" +
+                    "</tr>"+
+                    "<tr>" +
+                        "<td>2018-05-05</td>" +
+                        "<td>事假</td>"+
+                        "<td>未处理</td>" +
+                        "<td>admin</td>" +
+                    "</tr>";
+$(applyProTab).append(applyProCnetent);
+
+addColor(applyProTab,"驳回","appro_situation_oppose","同意","appro_situation_agree","未处理","appro_situation_wait");
+addBackColor(applyProTab);
+
+//打卡情况
+var cardStuaTab = document.getElementById('stua_cardtb');
+var cardStuaCnetent = "<tr>" +
+                        "<td>2" +
+                        "<td>2018-05-05</td>"+
+                        "<td>admin</td>" +
+                        "<td>09:38:11</td>" +
+                        "<td>18:30:15</td>" +
+                        "<td>迟到</td>"+
+                    "</tr>"+
+                    "<tr>" +
+                        "<td>2" +
+                        "<td>2018-05-05</td>"+
+                        "<td>admin</td>" +
+                        "<td>09:38:11</td>" +
+                        "<td>18:30:15</td>" +
+                        "<td>旷工</td>"+
+                    "</tr>"+
+                    "<tr>" +
+                        "<td>2" +
+                        "<td>2018-05-05</td>"+
+                        "<td>admin</td>" +
+                        "<td>09:38:11</td>" +
+                        "<td>18:30:15</td>" +
+                        "<td>旷工 迟到</td>"+
+                    "</tr>";
+$(cardStuaTab).append(cardStuaCnetent);
+addBackColor(cardStuaTab);
+addColor(cardStuaTab,"迟到","be_late","旷工","stay_away","旷工 迟到","stay_away");
+
+
+
+
 
 
 
