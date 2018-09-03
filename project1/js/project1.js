@@ -252,124 +252,116 @@ window.onload = function(){
 // applyTabClick(applyouttab,applyoutif);
 
 
+// //创建i个tr标签，然后再每个tr标签里创建4个td标签
+// for (var i = 0; i < applyProgress.length; i++) {
+// 	var tr = document.createElement('tr');
+// 	applyProTab.appendChild(applyProTab);
+// 	for (var i = 0; i < 4; i++) {
+// 		var td = document.createElement('td');
+// 		tr.appendChild(td);
+// 	}
+// }
+
+//这个函数是为相应的板块创建tr和td标签
+function creatTrandTd(block,appendInto,tdNumber){
+	for (var i = 0; i < block.length; i++) {
+	var tr = document.createElement('tr');
+	applyProTab.appendChild(tr);
+	for (var i = 0; i < tdNumber; i++) {
+		var td = document.createElement('td');
+		tr.appendChild(td);
+	}
+}
+
+}
+
+
+tr[i].td[0].innerHTML = applyProgress[i].date;
+tr[i].td[1].innerHTML = applyProgress[i].applyType;
+tr[i].td[3].innerHTML = applyProgress[i].applySituation;
+tr[i].td[4].innerHTML = applyProgress[i].audit;
 
 
 
 
-//申请进度
+
+
+
+
+
+
+
+
+     //申请进度
 
 	var applyProTab = document.getElementById('appro_table');
-	var applyProCnetent = "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>事假</td>"+
-                        "<td>驳回</td>" +
-                        "<td>admin</td>" +
-                   	"</tr>"+
-                   	 "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>事假</td>"+
-                        "<td>未处理</td>" +
-                        "<td>admin</td>" +
-                    	"</tr>";
-	$(applyProTab).append(applyProCnetent);
+	$.get(后台,function(){
+		creatTrandTd(applyProgress,applyProTab,4);
+		var tr = applyProTab.getElementsByTagName('tr');
+		for (var i = 0; i < tr.length; i++) {
+			tr[i+1].td[0].innerHTML = applyProgress[i].date;
+			tr[i+1].td[1].innerHTML = applyProgress[i].applyType;
+			tr[i+1].td[2].innerHTML = applyProgress[i].applySituation;
+			tr[i+1].td[3].innerHTML = applyProgress[i].audit;
+
+		}
+	});
+
 
 	addColor(applyProTab,"驳回","appro_situation_oppose","同意","appro_situation_agree","未处理","appro_situation_wait");
 	addBackColor(applyProTab);
 
 	//打卡情况
 	var cardStuaTab = document.getElementById('stua_cardtb');
-	var cardStuaCnetent = "<tr>" +
-                        "<td>2</td>" +
-                        "<td>2018-05-05</td>"+
-                        "<td>admin</td>" +
-                        "<td>09:38:11</td>" +
-                        "<td>18:30:15</td>" +
-                        "<td>迟到</td>"+
-                   	"</tr>"+
-                    "<tr>" +
-                        "<td>2</td>" +
-                        "<td>2018-05-05</td>"+
-                        "<td>admin</td>" +
-                        "<td>09:38:11</td>" +
-                        "<td>18:30:15</td>" +
-                        "<td>旷工</td>"+
-                    "</tr>"+
-                    "<tr>" +
-                        "<td>2</td>" +
-                        "<td>2018-05-05</td>"+
-                        "<td>admin</td>" +
-                        "<td>09:38:11</td>" +
-                        "<td>18:30:15</td>" +
-                        "<td>旷工 迟到</td>"+
-                    "</tr>";
-	$(cardStuaTab).append(cardStuaCnetent);
+	$.get(后台,function(){
+		creatTrandTd(dakaSituation,cardStuaTab,6);
+		var tr = cardStuaTab.getElementsByTagName('tr');
+		for (var i = 0; i < tr.length; i++) {
+			tr[i+1].td[0].innerHTML = dakaSituation[i].number;
+			tr[i+1].td[1].innerHTML = dakaSituation[i].date;
+			tr[i+1].td[2].innerHTML = dakaSituation[i].userName;
+			tr[i+1].td[3].innerHTML = dakaSituation[i].intime;
+			tr[i+1].td[4].innerHTML = dakaSituation[i].outtime;
+			tr[i+1].td[5].innerHTML = dakaSituation[i].situation;
+		}
+
+	});
+
 	addBackColor(cardStuaTab);
 	addColor(cardStuaTab,"迟到","be_late","旷工","stay_away","旷工 迟到","stay_away");
 
 	//请假情况
 	var hliStuaTab = document.getElementById('hli_stuatb');
-	var hliStuaContent = "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>6</td>"+
-                        "<td>admin</td>" +
-                        "<td>病假</td>" +
-                        "<td>2018-08-04</td>" +
-                        "<td>2018-08-04</td>"+
-                        "<td>驳回</td>"+
-                    "</tr>"+
-                    "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>4</td>"+
-                        "<td>admin</td>" +
-                        "<td>病假</td>" +
-                        "<td>2018-08-04</td>" +
-                        "<td>2018-08-04</td>"+
-                        "<td>未处理</td>"+
-                    "</tr>"+
-                    "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>5</td>"+
-                        "<td>admin</td>" +
-                        "<td>病假</td>" +
-                        "<td>2018-08-04</td>" +
-                        "<td>2018-08-04</td>"+
-                        "<td>通过</td>"+
-                    "</tr>";
-
-	$(hliStuaTab).append(hliStuaContent);
+	$.get(后台,function(){
+		creatTrandTd(leaveSituation,hliStuaTab,7);
+		var tr = hliStuaTab.getElementsByTagName('tr');
+		for (var i = 0; i < tr.length; i++) {
+			tr[i+1].td[0].innerHTML = leaveSituation[i].number;
+			tr[i+1].td[1].innerHTML = leaveSituation[i].date;
+			tr[i+1].td[2].innerHTML = leaveSituation[i].userName;
+			tr[i+1].td[3].innerHTML = leaveSituation[i].applyType;
+			tr[i+1].td[4].innerHTML = leaveSituation[i].startTime0;
+			tr[i+1].td[5].innerHTML = leaveSituation[i].endTime0;
+			tr[i+1].td[6].innerHTML = leaveSituation[i].resultHand;
+		}
+	})
 	addBackColor(hliStuaTab);
 	addColor(hliStuaTab,"驳回","ap_situation_oppose","未处理","ap_situation_wait","通过","ap_situation_agree");
 	//出差情况
 	var outStuaTab = document.getElementById('out_stuatb');
-	var outStuaContent = "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>6</td>"+
-                        "<td>admin</td>" +
-                        "<td>北京</td>" +
-                        "<td>2018-08-04</td>" +
-                        "<td>2018-08-04</td>"+
-                        "<td>驳回</td>"+
-                    "</tr>"+
-                    "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>4</td>"+
-                        "<td>admin</td>" +
-                        "<td>南京</td>" +
-                        "<td>2018-08-04</td>" +
-                        "<td>2018-08-04</td>"+
-                        "<td>未处理</td>"+
-                    "</tr>"+
-                    "<tr>" +
-                        "<td>2018-05-05</td>" +
-                        "<td>5</td>"+
-                        "<td>admin</td>" +
-                        "<td>上海</td>" +
-                        "<td>2018-08-04</td>" +
-                        "<td>2018-08-04</td>"+
-                        "<td>通过</td>"+
-                    "</tr>";
+	$.get(后台,function(){
+		creatTrandTd(awaySituation,outStuaTab,7);
+		for (var i = 0; i < tr.length; i++) {
+			tr[i+1].td[0].innerHTML = leaveSituation[i].number;
+			tr[i+1].td[1].innerHTML = leaveSituation[i].date;
+			tr[i+1].td[2].innerHTML = leaveSituation[i].userName;
+			tr[i+1].td[3].innerHTML = leaveSituation[i].awayLocation;
+			tr[i+1].td[4].innerHTML = leaveSituation[i].startTime1;
+			tr[i+1].td[5].innerHTML = leaveSituation[i].endTime1;
+			tr[i+1].td[6].innerHTML = leaveSituation[i].resultHand;
+		}
 
-	$(outStuaTab).append(outStuaContent);
+	})
 	addBackColor(outStuaTab);
 	addColor(outStuaTab,"驳回","ap_situation_oppose","未处理","ap_situation_wait","通过","ap_situation_agree")
 
