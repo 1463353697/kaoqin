@@ -310,6 +310,9 @@ background-attachment: fixed;">
 			
 			
 			//这里是在所有的表单填写成功之后要执行的操作
+
+			//获取提交按钮
+			var signSubmit = document.getElementById('sign_submit');
 			signSubmit.onclick = function(){
 				var nameInput = sign_check(0,/^[a-zA-Z_]\w{5,15}$/g,0,0);
 				var numInput = sign_check(5,/^1\d{10}$/,1,1);
