@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>用户登录</title>
+	<meta charset="utf-8">
 	<style type="text/css">
 		* {
 			margin: 0px;
@@ -9,6 +10,11 @@
 			text-decoration: none;
 			list-style: none;
 			font-family: "微软雅黑";
+		}
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
 		.sign_up_in {
@@ -54,11 +60,18 @@
 		.entry_password {
 			margin-left: 6px;
 		}
+		.entry_content td {
+			width: 370px;
+			display: inline-flex;
+			justify-content: space-between;
+		}
+
 		.entry_content a {
+
 			color: #222222;
 			font-size: 12px;
 			text-decoration: underline;
-			margin-left: 70px;
+			/*margin-right: 10px;*/
 		}
 		.entry_button {
 			padding: 8px 12px;

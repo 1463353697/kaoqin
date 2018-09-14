@@ -18,6 +18,13 @@ a{
     height: 46px;
     background-color: #222;
 }
+#gobackSign {
+    color: #ffffff;
+    float: right;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-right: 40px;
+}
 .container-s1{
     height: 46px;
     line-height: 46px;

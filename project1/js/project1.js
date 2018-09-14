@@ -11,6 +11,43 @@
 
 
 window.onload = function(){
+	//判断用户身份，显示不同的页面
+	function checkUser(){
+		//获取查看相应情况的部分
+		var look = document.getElementById('left-apl');
+		//查看相应情况中的内容板块
+		var lookContent = document.getElementById('left-apl-content');
+		//获取请假审核和出差审核的部分
+		var hliCheck = document.getElementById('hli_check_li');
+		var outCheck = document.getElementById('out_check_li');
+		$.get("" , function(){
+
+			//普通用户
+			if (login.status == 1) {
+				$look.css("display","none");
+				$lookContent.css("display","none");
+				$hliCheck.css("display","none");
+				$outCheck.css("display","none");
+			}
+
+			//考勤员
+			if (login.status == 2) {
+				$hliCheck.css("display","none");
+				$outCheck.css("display","none");
+
+			}
+		})
+	}
+
+
+
+
+
+
+
+
+
+
 	function navLetf() {
 		var [a,b] = [$("[id=left-apl]"),$(".in-ul")];
 		var c = $(".left-cho");
@@ -247,6 +284,117 @@ window.onload = function(){
 		}
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//这个函数是为相应的板块创建tr和td标签
+	function creatTrandTd(block,appendInto,tdNumber){
+		for (var i = 0; i < block.length; i++) {
+		var tr = document.createElement('tr');
+		appendInto.appendChild(tr);
+			for (var i = 0; i < tdNumber; i++) {
+				var td = document.createElement('td');
+				tr.appendChild(td);
+			}
+		}
+
+	}
+
+     //申请进度
+
+	var applyProTab = document.getElementById('appro_table');
+	$.get(后台,function(){
+		creatTrandTd(applyProgress,applyProTab,4);
+		var tr = applyProTab.getElementsByTagName('tr');
+		for (var i = 0; i < tr.length; i++) {
+			var td = tr[i+1].getElementsByTagName('td');
+			tr[i+1].td[0].innerHTML = applyProgress[i].date;
+			tr[i+1].td[1].innerHTML = applyProgress[i].applyType;
+			tr[i+1].td[2].innerHTML = applyProgress[i].applySituation;
+			tr[i+1].td[3].innerHTML = applyProgress[i].audit;
+
+		}
+	});
+
+	addColor(applyProTab,"驳回","appro_situation_oppose","同意","appro_situation_agree","未处理","appro_situation_wait");
+	addBackColor(applyProTab);
+
+	//打卡情况
+	var cardStuaTab = document.getElementById('stua_cardtb');
+	$.get(后台,function(){
+		creatTrandTd(dakaSituation,cardStuaTab,6);
+		var tr = cardStuaTab.getElementsByTagName('tr');
+		for (var i = 0; i < tr.length; i++) {
+			var td = tr[i+1].getElementsByTagName('td');
+			tr[i+1].td[0].innerHTML = dakaSituation[i].number;
+			tr[i+1].td[1].innerHTML = dakaSituation[i].date;
+			tr[i+1].td[2].innerHTML = dakaSituation[i].userName;
+			tr[i+1].td[3].innerHTML = dakaSituation[i].intime;
+			tr[i+1].td[4].innerHTML = dakaSituation[i].outtime;
+			tr[i+1].td[5].innerHTML = dakaSituation[i].situation;
+		}
+
+	});
+
+	addBackColor(cardStuaTab);
+	addColor(cardStuaTab,"迟到","be_late","旷工","stay_away","旷工 迟到","stay_away");
+
+	//请假情况
+	var hliStuaTab = document.getElementById('hli_stuatb');
+	$.get(后台,function(){
+		creatTrandTd(leaveSituation,hliStuaTab,7);
+		var tr = hliStuaTab.getElementsByTagName('tr');
+		for (var i = 0; i < tr.length; i++) {
+			var td = tr[i+1].getElementsByTagName('td');
+			tr[i+1].td[0].innerHTML = leaveSituation[i].number;
+			tr[i+1].td[1].innerHTML = leaveSituation[i].date;
+			tr[i+1].td[2].innerHTML = leaveSituation[i].userName;
+			tr[i+1].td[3].innerHTML = leaveSituation[i].applyType;
+			tr[i+1].td[4].innerHTML = leaveSituation[i].startTime0;
+			tr[i+1].td[5].innerHTML = leaveSituation[i].endTime0;
+			tr[i+1].td[6].innerHTML = leaveSituation[i].resultHand;
+		}
+	})
+	addBackColor(hliStuaTab);
+	addColor(hliStuaTab,"驳回","ap_situation_oppose","未处理","ap_situation_wait","通过","ap_situation_agree");
+
+
+	//出差情况
+	var outStuaTab = document.getElementById('out_stuatb');
+	$.get(后台,function(){
+		creatTrandTd(awaySituation,outStuaTab,7);
+		for (var i = 0; i < tr.length; i++) {
+			var td = tr[i+1].getElementsByTagName('td');
+			tr[i+1].td[0].innerHTML = leaveSituation[i].number;
+			tr[i+1].td[1].innerHTML = leaveSituation[i].date;
+			tr[i+1].td[2].innerHTML = leaveSituation[i].userName;
+			tr[i+1].td[3].innerHTML = leaveSituation[i].awayLocation;
+			tr[i+1].td[4].innerHTML = leaveSituation[i].startTime1;
+			tr[i+1].td[5].innerHTML = leaveSituation[i].endTime1;
+			tr[i+1].td[6].innerHTML = leaveSituation[i].resultHand;
+		}
+
+	});
+
+	addBackColor(outStuaTab);
+	addColor(outStuaTab,"驳回","ap_situation_oppose","未处理","ap_situation_wait","通过","ap_situation_agree")
+
+
+
+
+
+
+
 	//获取审核表格
 	var applyHoliday  =  document.getElementById('applyholidaytab');
 	// var applyHolidayTab = applyHoliday.getElementsByTagName("tr");
@@ -451,100 +599,6 @@ window.onload = function(){
 		)
 		}
 	}
-
-
-
-	//这个函数是为相应的板块创建tr和td标签
-	function creatTrandTd(block,appendInto,tdNumber){
-		for (var i = 0; i < block.length; i++) {
-		var tr = document.createElement('tr');
-		appendInto.appendChild(tr);
-			for (var i = 0; i < tdNumber; i++) {
-				var td = document.createElement('td');
-				tr.appendChild(td);
-			}
-		}
-
-	}
-
-     //申请进度
-
-	var applyProTab = document.getElementById('appro_table');
-	$.get(后台,function(){
-		creatTrandTd(applyProgress,applyProTab,4);
-		var tr = applyProTab.getElementsByTagName('tr');
-		for (var i = 0; i < tr.length; i++) {
-			var td = tr[i+1].getElementsByTagName('td');
-			tr[i+1].td[0].innerHTML = applyProgress[i].date;
-			tr[i+1].td[1].innerHTML = applyProgress[i].applyType;
-			tr[i+1].td[2].innerHTML = applyProgress[i].applySituation;
-			tr[i+1].td[3].innerHTML = applyProgress[i].audit;
-
-		}
-	});
-
-	addColor(applyProTab,"驳回","appro_situation_oppose","同意","appro_situation_agree","未处理","appro_situation_wait");
-	addBackColor(applyProTab);
-
-	//打卡情况
-	var cardStuaTab = document.getElementById('stua_cardtb');
-	$.get(后台,function(){
-		creatTrandTd(dakaSituation,cardStuaTab,6);
-		var tr = cardStuaTab.getElementsByTagName('tr');
-		for (var i = 0; i < tr.length; i++) {
-			var td = tr[i+1].getElementsByTagName('td');
-			tr[i+1].td[0].innerHTML = dakaSituation[i].number;
-			tr[i+1].td[1].innerHTML = dakaSituation[i].date;
-			tr[i+1].td[2].innerHTML = dakaSituation[i].userName;
-			tr[i+1].td[3].innerHTML = dakaSituation[i].intime;
-			tr[i+1].td[4].innerHTML = dakaSituation[i].outtime;
-			tr[i+1].td[5].innerHTML = dakaSituation[i].situation;
-		}
-
-	});
-
-	addBackColor(cardStuaTab);
-	addColor(cardStuaTab,"迟到","be_late","旷工","stay_away","旷工 迟到","stay_away");
-
-	//请假情况
-	var hliStuaTab = document.getElementById('hli_stuatb');
-	$.get(后台,function(){
-		creatTrandTd(leaveSituation,hliStuaTab,7);
-		var tr = hliStuaTab.getElementsByTagName('tr');
-		for (var i = 0; i < tr.length; i++) {
-			var td = tr[i+1].getElementsByTagName('td');
-			tr[i+1].td[0].innerHTML = leaveSituation[i].number;
-			tr[i+1].td[1].innerHTML = leaveSituation[i].date;
-			tr[i+1].td[2].innerHTML = leaveSituation[i].userName;
-			tr[i+1].td[3].innerHTML = leaveSituation[i].applyType;
-			tr[i+1].td[4].innerHTML = leaveSituation[i].startTime0;
-			tr[i+1].td[5].innerHTML = leaveSituation[i].endTime0;
-			tr[i+1].td[6].innerHTML = leaveSituation[i].resultHand;
-		}
-	})
-	addBackColor(hliStuaTab);
-	addColor(hliStuaTab,"驳回","ap_situation_oppose","未处理","ap_situation_wait","通过","ap_situation_agree");
-
-
-	//出差情况
-	var outStuaTab = document.getElementById('out_stuatb');
-	$.get(后台,function(){
-		creatTrandTd(awaySituation,outStuaTab,7);
-		for (var i = 0; i < tr.length; i++) {
-			var td = tr[i+1].getElementsByTagName('td');
-			tr[i+1].td[0].innerHTML = leaveSituation[i].number;
-			tr[i+1].td[1].innerHTML = leaveSituation[i].date;
-			tr[i+1].td[2].innerHTML = leaveSituation[i].userName;
-			tr[i+1].td[3].innerHTML = leaveSituation[i].awayLocation;
-			tr[i+1].td[4].innerHTML = leaveSituation[i].startTime1;
-			tr[i+1].td[5].innerHTML = leaveSituation[i].endTime1;
-			tr[i+1].td[6].innerHTML = leaveSituation[i].resultHand;
-		}
-
-	});
-
-	addBackColor(outStuaTab);
-	addColor(outStuaTab,"驳回","ap_situation_oppose","未处理","ap_situation_wait","通过","ap_situation_agree")
 
 
 
